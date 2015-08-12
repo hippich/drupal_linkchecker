@@ -235,6 +235,12 @@ function linkchecker_admin_settings_form($form_state) {
     '#title' => t("Don't treat these response codes as errors"),
     '#description' => t('One HTTP status code per line, e.g. 403.'),
   );
+  $form['error']['linkchecker_show_link_error_warning'] = array(
+    '#default_value' => variable_get('linkchecker_show_link_error_warning', TRUE),
+    '#type' => 'checkbox',
+    '#title' => t('Show warning when link check errors detected.'),
+    '#description' => t('Show user warnings about links failed check when user edit node.'),
+  );
 
   // Buttons are only required for testing and debugging reasons.
   $description = '<p>' . t('These actions will either clear all link checker tables in the database and/or analyze all selected content types, blocks and fields (see settings above) for new/updated/removed links. Normally there is no need to press one of these buttons. Use this only for immediate cleanup tasks and to force a full re-build of the links to be checked in the linkchecker tables. Keep in mind that all custom link settings will be lost if you clear link data!') . '</p>';
